@@ -21,6 +21,6 @@ public class RibbonConfig {
     public RestTemplate restTemplate() {
         ClientHttpRequestFactory requestFactory = new
                 HttpComponentsClientHttpRequestFactory(HttpClients.createDefault());
-        return new RestTemplate();
+        return new RestTemplate(requestFactory);
     }
 }

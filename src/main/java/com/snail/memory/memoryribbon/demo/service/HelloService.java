@@ -21,10 +21,10 @@ public class HelloService {
     @Autowired
     private RestTemplate restTemplate;
 
-    @HystrixCommand(fallbackMethod = "helloFallback")
+    //    @HystrixCommand(fallbackMethod = "helloFallback")
     public String helloConsumer() {
         String url = "http://MEMORY/hello";
-        HttpEntity<Object> requestEntity = new HttpEntity<>(null, RequestHeaderUtils.buildRequestHeader());
+        HttpEntity<Object> requestEntity = new HttpEntity<Object>(null, RequestHeaderUtils.buildRequestHeader());
         ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.GET, requestEntity, new ParameterizedTypeReference<String>() {
         });
         return exchange.getBody();
