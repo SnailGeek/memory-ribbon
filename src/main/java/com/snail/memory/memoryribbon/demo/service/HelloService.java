@@ -21,7 +21,7 @@ public class HelloService {
     @Autowired
     private RestTemplate restTemplate;
 
-    //    @HystrixCommand(fallbackMethod = "helloFallback")
+    @HystrixCommand(fallbackMethod = "helloFallback", commandKey = "helloKey")
     public String helloConsumer() {
         String url = "http://MEMORY/hello";
         HttpEntity<Object> requestEntity = new HttpEntity<Object>(null, RequestHeaderUtils.buildRequestHeader());
